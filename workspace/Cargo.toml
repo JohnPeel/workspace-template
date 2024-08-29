@@ -1,0 +1,14 @@
+[workspace]
+members = []
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+{%- if license != "Unlicensed" %}
+license = "{{ license }}"
+{% endif -%}
+edition = "2021"
+rust-version = "1.80"
+
+[workspace.dependencies]
+[workspace.lints]

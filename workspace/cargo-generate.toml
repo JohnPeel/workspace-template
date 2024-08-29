@@ -1,0 +1,16 @@
+[template]
+cargo_generate_version = ">=0.9.0"
+
+[placeholders.license]
+type = "string"
+prompt = "Choose a license for your project:"
+choices = [
+    "MIT OR Apache-2.0",
+    "MIT",
+    "Apache-2.0",
+    "Unlicensed",
+]
+default = "MIT OR Apache-2.0"
+
+[hooks]
+pre = ["../hooks/pre/licenses.rhai"]
