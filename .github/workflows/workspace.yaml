@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+  push:
+    branches: [ '*' ]
+    paths:
+    - 'cargo-generate.toml'
+    - 'hooks/**'
+    - 'workspace/**'
+    - '.github/workflows/workspace.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: "example-workspace"
+    steps:
+    - uses: actions/checkout@v4
+    - uses: JohnPeel/cargo-generate-action@main
+      with:
+        name: ${{ env.PROJECT_NAME }}
+        subfolder: 'workspace'
+        arguments: '--verbose --define license="MIT OR Apache-2.0"'
